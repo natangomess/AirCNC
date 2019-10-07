@@ -1,18 +1,15 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { createAppContainer, createSwitchNavigation, createSwitchNavigator } from 'react-navigation';
 
 import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import New from './pages/New';
+import List from './pages/List';
+import Book from './pages/Book';
 
-export default function Routes() {
-    return (
-        <BrowserRouter>
-            <Switch>
-                <Route path="/" exact component={Login} />
-                <Route path="/dashboard" component={Dashboard} />
-                <Route path="/new" component={New} />
-            </Switch>
-        </BrowserRouter>
-    );
-}
+const Routes = createAppContainer(
+    createSwitchNavigator ({
+        Login,
+        List,
+        Book
+    })
+);
+
+export default Routes;
